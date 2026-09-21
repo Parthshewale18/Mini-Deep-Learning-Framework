@@ -36,6 +36,9 @@ class Tensor:
 
         return out
 
+    __radd__ = __add__
+    __rmul__ = __mul__
+
     def __neg__(self):
         return self * -1
 
