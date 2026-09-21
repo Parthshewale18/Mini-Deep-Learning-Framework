@@ -59,6 +59,7 @@ def elu(x, alpha=1.0):
 
     return out
 
+# SELU
 def selu(x):
     alpha = 1.6732632423543772
     scale = 1.0507009873554805
