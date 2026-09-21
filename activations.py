@@ -39,7 +39,7 @@ def relu(x):
 
 # Leaky ReLU
 def leaky_relu(x, alpha=0.01):
-    out = Tensor(x.data if x.data > 0 else alpha * x.data, (x,), 'leaky_rely')
+    out = Tensor(x.data if x.data > 0 else alpha * x.data, (x,), 'leaky_relu')
 
     def _backward():
         x.grad += (1.0 if x.data > 0 else alpha) * out.grad
@@ -53,7 +53,7 @@ def elu(x, alpha=1.0):
     out = Tensor(x.data if x.data > 0 else alpha * (math.exp(x.data) - 1), (x,), 'elu')
 
     def _backward():
-        x.gard = (1.0 if x.data > 0 else alpha * math.exp(x.data)) * out.grad
+        x.grad += (1.0 if x.data > 0 else alpha * math.exp(x.data)) * out.grad
 
     out._backward = _backward
 
