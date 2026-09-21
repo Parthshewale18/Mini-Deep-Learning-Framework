@@ -99,7 +99,10 @@ class Tensor:
         out = Tensor(abs(self.data), (self,), 'abs')
 
         def _backward():
-            self.grad += (1 if self.data>= 0 else -1) * out.grad
+            if self.data > 0:
+                self.grad += out.grad
+            elif self.data < 0:
+                self.grad -= out.grad
 
         out._backward = _backward
 
