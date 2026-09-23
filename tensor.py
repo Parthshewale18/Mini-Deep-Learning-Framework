@@ -1,3 +1,5 @@
+""" Tensor class for automatic differentiation"""
+
 import math
 class Tensor:
     def __init__(self, data, _children=(), op=''):
