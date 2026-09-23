@@ -1,3 +1,5 @@
+""" Activation Functions for Nueral Networks"""
+
 from tensor import Tensor
 import math
 
