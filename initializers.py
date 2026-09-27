@@ -17,3 +17,13 @@ def lecun_normal(fan_in):
     std = math.sqrt(1 / fan_in)
 
     return np.random.normal(0, std)
+
+def initialize(fan_in, fan_out, method="glorot"):
+        if method == "glorot":
+              return glorot_uniform(fan_in, fan_out)
+        elif method == "he":
+              return he_normal(fan_in)
+        elif method == "lecun":
+              return lecun_normal(fan_in)
+        else:
+             raise ValueError(f"Unknown init: {method}")
